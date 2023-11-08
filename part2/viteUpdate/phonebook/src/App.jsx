@@ -23,6 +23,8 @@ const App = () => {
       .catch((error) => alert(error))
   }, [])
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const newPerson = { name: newName, number: newNumber }
