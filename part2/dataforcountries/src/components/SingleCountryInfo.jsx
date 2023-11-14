@@ -25,7 +25,7 @@ const SingleCountryInfo = ({singleCountry}) => {
             <p>The population of {singleCountry.name.common} is {singleCountry.population}</p>
             <h3>Languages:</h3>
             <ul>
-                {keys.map(keys => <li key={singleCountry.id}>{singleCountry.languages[keys]}</li>)}
+                {keys.map(keys => <li key={singleCountry.name.common}>{singleCountry.languages[keys]}</li>)}
             </ul>
             <img src={singleCountry.flags.png} alt='flag' height='10%' width='10%' /> 
         </div>

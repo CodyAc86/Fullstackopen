@@ -1,13 +1,11 @@
 import { useState } from "react"
 import SingleCountryInfo from "./SingleCountryInfo"
 
-
 const Countries = ({singleCountry}) => {
   const [showCountry, setShowCountry] = useState(false)
 
   const handleShowClick= () => {
     setShowCountry(!showCountry)
-
   }
     return (
       <div>

@@ -14,11 +14,13 @@ function App() {
         setAllCountries(response.data)
       })
 }, [])
+
   const handleCountryChange = (event) => {
     console.log(event.target.value)
     setCountry(event.target.value)
   }
-  console.log(allCountries)
+
+  
   return (
     <div>
       <CountryForm countryValue={country} onCountryChange={handleCountryChange}/>    
