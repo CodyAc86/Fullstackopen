@@ -74,9 +74,9 @@ app.post('/api/persons', postMorgan, (request, response) => {
         return response.status(400).json({error: 'name or number is missing'})
     }
     const person = {
+        id: generateId(),
         name: body.name,
-        number: body.number,
-        id: generateId()
+        number: body.number        
     }
     const existingPerson = persons.find(
         (props) => props.name.toLowerCase() === body.name.toLowerCase())
@@ -89,6 +89,17 @@ app.post('/api/persons', postMorgan, (request, response) => {
     response.json(person)
 })
 
+app.put('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    
+    const newPerson = request.body
+	const existingPerson = persons.find(
+        (props) => props.name.toLowerCase() === newPerson.name.toLowerCase())
+    if (existingPerson){
+        persons = persons.map(n => n.id !== existingPerson.id ? n : newPerson)
+        response.json(newPerson)
+    }
+})
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

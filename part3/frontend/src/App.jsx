@@ -49,22 +49,18 @@ const App = () => {
     }
     
     else if (existingPerson && existingPerson.number !== newNumber) {
-      if (
-        window.confirm(
-          `${newName} is already added to phonebook, replace the old number with a new one?`
-        )
-      ) {        
-
+      if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)){      
+        console.log('We are here now')
         personService
           .update(existingPerson.id, updatedPerson)
           .then(returnedPerson => {
-            setPersons(persons.map(n => n.id !== existingPerson.id? n : returnedPerson))
-            setNewName("")
-            setNewNumber("")
+            setPersons(persons.map(n => n.id !== existingPerson.id ? n : returnedPerson))            
             setSuccessMessage(`Updated ${newName}'s number`)
             setTimeout(() => {
               setSuccessMessage(null)
-            }, delay)   
+            }, delay)  
+            setNewName("")
+            setNewNumber("") 
           })
           .catch((error) => {
             if (error.response.data) {
@@ -74,7 +70,7 @@ const App = () => {
               }, delay)
             } 
           })        
-       }       
+      }      
     }
     
     else {

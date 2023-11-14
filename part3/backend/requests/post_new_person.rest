@@ -5,3 +5,13 @@ Content-Type: application/json
     "name": "Arto HellasD",
     "number": "54123123123"
 }
+
+###
+PUT http://localhost:3001/api/persons/1
+Content-Type: application/json
+
+{    
+    "id": 1,
+    "name": "Arto Hellas",
+    "number": "54123123123"
+}
